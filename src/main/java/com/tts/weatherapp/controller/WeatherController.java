@@ -23,7 +23,8 @@ public class WeatherController {
         model.addAttribute("request", new Request());
         return "index";
     }
-    @PostMapping
+    
+    @PostMapping("/")
     public String postIndex(Request request, Model model) {
         Response data = weatherService.getForecast(request.getZipCode());
         model.addAttribute("data", data);

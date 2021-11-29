@@ -13,13 +13,14 @@ public class WeatherService {
     private String apiKey;
 
     public Response getForecast(String zipCode) {
-        String url = "http://api.openweathermap.org/data/2.5/weather?zip=" + 
-            zipCode + "&units=imperial&appid=" + apiKey;
+        String url = "http://api.openweathermap.org/data/2.5/weather?zip=" +
+                zipCode + "&units=imperial&appid=" + apiKey;
         RestTemplate restTemplate = new RestTemplate();
         try {
-            
-        return restTemplate.getForObject(url, Response.class);
-        } catch(HttpClientErrorException ex){
+           
+           return restTemplate.getForObject(url, Response.class);
+        
+        } catch (HttpClientErrorException ex) {
             Response response = new Response();
             response.setName("error");
             return response;
